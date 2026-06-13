@@ -24,31 +24,18 @@ $post-content-border-radius: 6px;
     }
 }
 
-body.mm-chat-ui--light-theme {
-    .post:not(.post--system) .post__body {
-        background: rgba(61, 60, 64, 0.04) !important;
-        //box-shadow: 0 2px 2px rgba(160, 172, 182, 0.5);
-        border: 1px solid rgba(160, 172, 182, 0.25);
-    }
-}
+// Bubble colours follow the active theme
+body.mm-chat-ui--light-theme,
 body.mm-chat-ui--dark-theme {
     .post:not(.post--system) .post__body {
-        background: rgba(255, 255, 255, 0.08) !important;
-        a {
-            color: rgb(90, 180, 255);
-        }
+        background: rgba(var(--center-channel-color-rgb), 0.05) !important;
+        border: 1px solid rgba(var(--center-channel-color-rgb), 0.12);
     }
-}
 
-
-// Current user's posts
-body.mm-chat-ui--light-theme .post.current--user .post__body {
-    background-color: rgba(239, 253, 222, .82) !important;
-    //box-shadow: 0 2px 2px rgba(193, 218, 162, .75);
-    border: 1px solid rgba(193,218,162,0.4);
-}
-body.mm-chat-ui--dark-theme .post.current--user .post__body {
-    background-color: rgba(86, 164, 240, .3) !important;
+    .post.current--user .post__body {
+        // color-mix, not rgba(var(--button-bg-rgb)): some servers store --*-rgb as hex
+        background-color: color-mix(in srgb, var(--button-bg) 10%, transparent) !important;
+    }
 }
 
 
